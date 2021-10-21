@@ -174,7 +174,7 @@ To illustrate linking with a postgresql container, we will use the [alisonmukoma
 First, lets pull the postgresql image from the docker index.
 
 ```bash
-docker pull alisonmukoma/postgresql:12-20200524
+docker pull postgresql:12
 ```
 
 For data persistence lets create a store for the postgresql and start the container.
@@ -194,7 +194,7 @@ docker run --name gitlab-postgresql -d \
     --env 'DB_USER=gitlab' --env 'DB_PASS=password' \
     --env 'DB_EXTENSION=pg_trgm' \
     --volume /srv/docker/gitlab/postgresql:/var/lib/postgresql \
-    alisonmukoma/postgresql:12-20200524
+    postgresql:12
 ```
 
 The above command will create a database named `gitlabhq_production` and also create a user named `gitlab` with the password `password` with access to the `gitlabhq_production` database.
@@ -1259,7 +1259,7 @@ Usage when using `docker-compose` can also be found there.
 >
 > Since GitLab release `8.6.0` PostgreSQL users should enable `pg_trgm` extension on the GitLab database. Refer to GitLab's [Postgresql Requirements](http://doc.gitlab.com/ce/install/requirements.html#postgresql-requirements) for more information
 >
-> If you're using `alisonmukoma/postgresql` then please upgrade to `alisonmukoma/postgresql:12-20200524` or later and add `DB_EXTENSION=pg_trgm,btree_gist` to the environment of the PostgreSQL container (see: https://github.com/alisonmukoma/docker-gitlab/blob/master/docker-compose.yml#L8).
+> If you're using `alisonmukoma/postgresql` then please upgrade to `postgresql:12` or later and add `DB_EXTENSION=pg_trgm,btree_gist` to the environment of the PostgreSQL container (see: https://github.com/alisonmukoma/docker-gitlab/blob/master/docker-compose.yml#L8).
 >
 > As of version 13.7.0, the required PostgreSQL is version 12.x. If you're using PostgreSQL image other than the above, please review section [Upgrading PostgreSQL](#upgrading-postgresql).
 
