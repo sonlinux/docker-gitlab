@@ -50,8 +50,8 @@ services:
     - REDIS_HOST=redis
     - REDIS_PORT=6379
 
-    - TZ=Asia/Kolkata
-    - GITLAB_TIMEZONE=Kolkata
+    - TZ=Africa/Lusaka
+    - GITLAB_TIMEZONE=Lusaka
 
     - GITLAB_HTTPS=false
     - SSL_SELF_SIGNED=false
